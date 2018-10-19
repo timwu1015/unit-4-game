@@ -30,6 +30,7 @@ $(document).ready(function() {
     var charChosen = false;
     
     $(".pic").on("click", function() {
+        console.log($(this).alt());
         if(!charChosen) {
             character = $(this).alt();
             $(".character").clone().appendTo("#pick");
