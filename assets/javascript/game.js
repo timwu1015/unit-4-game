@@ -30,14 +30,14 @@ $(document).ready(function() {
     var charChosen = false;
     
     $(".pic").on("click", function() {
-        console.log($(this).alt());
+        console.log($(this).val());
         if(!charChosen) {
-            character = $(this).alt();
+            character = $(this).val();
             $(".character").clone().appendTo("#pick");
             charChosen = true;
         }
         else {
-            enemy = $(this).alt();
+            enemy = $(this).val();
             $(".enemy").clone().appendTo("#enemy");
         }
     });
