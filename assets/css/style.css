@@ -1,0 +1,41 @@
+body {
+    color: black;
+    font: 500 16px/22px "Lato", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-image: url("../images/wallpaper.jpg");
+  }
+
+header {
+    text-align: center;
+    color: brown;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.block1 {
+    display: inline-block;
+    text-align: center;
+    padding: 0 10px;
+    border: 1px solid #648880; 
+}
+
+.pic {
+    height: 150px;
+    width: 200px;
+}
+
+.block2 {
+    display: inline-block;
+    text-align: center;
+    margin-right: 300px;
+}
+
+.btn {
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    letter-spacing: .5px;
+    margin: 0;
+    text-transform: uppercase;
+  }
