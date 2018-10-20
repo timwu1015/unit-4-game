@@ -30,6 +30,7 @@ $(document).ready(function() {
     var char;
     var ene;
     var charChosen = false;
+    var enemyChosen = false;
     
     $(".block1").on("click", function() {
         if(!charChosen) {
@@ -44,6 +45,7 @@ $(document).ready(function() {
         }
         else {
             $(this).clone().appendTo("#enemy");
+            enemyChosen = true;
             enemy = eval($(this).attr("id"));
             ene = $(this).attr("id");
             console.log(enemy);
@@ -52,6 +54,9 @@ $(document).ready(function() {
     });
 
     $("#attack").on("click", function() {
+        if(!enemyChosen) {
+            return false;
+        }
         enemy.health -= character.attack;
         character.health -= enemy.enemyAttackBack;
         $("#offense").text("you attacked enemy for " + character.attack + " damage");
@@ -64,6 +69,7 @@ $(document).ready(function() {
         if(enemy.health <= 0) {
             $("#enemy").empty();
             $("#result").text("You have defeated your enemy, choose another if any");
+            enemyChosen = false;
         }
 
         if(character.health <= 0) {
