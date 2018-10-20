@@ -27,6 +27,8 @@ $(document).ready(function() {
     var increment = 6;
     var character;
     var enemy;
+    var char;
+    var ene;
     var charChosen = false;
     
     $(".block1").on("click", function() {
@@ -34,6 +36,8 @@ $(document).ready(function() {
             $(this).clone().appendTo("#pick");
             charChosen = true;
             character = eval($(this).attr("id"));
+            char = $(this).attr("id");
+            console.log(char);
             console.log(character);
             $(this).empty();
             $("#choice").text("Choose your enemy");
@@ -41,6 +45,7 @@ $(document).ready(function() {
         else {
             $(this).clone().appendTo("#enemy");
             enemy = eval($(this).attr("id"));
+            ene = $(this).attr("id");
             console.log(enemy);
             $(this).empty();
         }
@@ -51,8 +56,20 @@ $(document).ready(function() {
         character.health -= enemy.enemyAttackBack;
         $("#offense").text("you attacked enemy for " + character.attack + " damage");
         $("#defense").text("the enemy attacked you for " + enemy.enemyAttackBack + " damage");
+        $("#health" + char).text(character.health);
+        $("#health" + ene).text(enemy.health);
         character.attack += 6;
-        console.log(character.attack);
+        console.log(character.attack); 
+
+        if(enemy.health <= 0) {
+            $("#enemy").empty();
+            $("#result").text("You have defeated your enemy, choose another if any");
+        }
+
+        if(character.health <= 0) {
+            $("#pick").empty();
+            $("#result").text("You have been defeated, refresh to start again");
+        }
     });
 
 });
