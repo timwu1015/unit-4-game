@@ -31,6 +31,7 @@ $(document).ready(function() {
     var ene;
     var charChosen = false;
     var enemyChosen = false;
+    var hit = 0;
     
     $(".block1").on("click", function() {
         if(!charChosen) {
@@ -50,6 +51,9 @@ $(document).ready(function() {
             ene = $(this).attr("id");
             console.log(enemy);
             $(this).empty();
+            $("#result").empty();
+            $("#offense").empty();
+            $("#defense").empty();
         }
     });
 
@@ -63,18 +67,23 @@ $(document).ready(function() {
         $("#defense").text("the enemy attacked you for " + enemy.enemyAttackBack + " damage");
         $("#health" + char).text(character.health);
         $("#health" + ene).text(enemy.health);
-        character.attack += 6;
+        character.attack += 8;
         console.log(character.attack); 
 
         if(enemy.health <= 0) {
             $("#enemy").empty();
-            $("#result").text("You have defeated your enemy, choose another if any");
+            $("#result").text("You have defeated your enemy, choose another God to fight");
+            hit++;
             enemyChosen = false;
         }
 
         if(character.health <= 0) {
             $("#pick").empty();
             $("#result").text("You have been defeated, refresh to start again");
+        }
+
+        if(hit === 3) {
+            $("#result").text("You have defeated all enemies, a true God of War!");
         }
     });
 
