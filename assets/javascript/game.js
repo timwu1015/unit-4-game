@@ -25,21 +25,34 @@ $(document).ready(function() {
     };
 
     var increment = 6;
-    var character = "";
-    var enemy = "";
+    var character;
+    var enemy;
     var charChosen = false;
     
-    $(".pic").on("click", function() {
-        console.log($(this).val());
+    $(".block1").on("click", function() {
         if(!charChosen) {
-            character = $(this).val();
-            $(".character").clone().appendTo("#pick");
+            $(this).clone().appendTo("#pick");
             charChosen = true;
+            character = eval($(this).attr("id"));
+            console.log(character);
+            $(this).empty();
+            $("#choice").text("Choose your enemy");
         }
         else {
-            enemy = $(this).val();
-            $(".enemy").clone().appendTo("#enemy");
+            $(this).clone().appendTo("#enemy");
+            enemy = eval($(this).attr("id"));
+            console.log(enemy);
+            $(this).empty();
         }
+    });
+
+    $("#attack").on("click", function() {
+        enemy.health -= character.attack;
+        character.health -= enemy.enemyAttackBack;
+        $("#offense").text("you attacked enemy for " + character.attack + " damage");
+        $("#defense").text("the enemy attacked you for " + enemy.enemyAttackBack + " damage");
+        character.attack += 6;
+        console.log(character.attack);
     });
 
 });

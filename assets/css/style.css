@@ -39,3 +39,8 @@ header {
     margin: 0;
     text-transform: uppercase;
   }
+
+.font {
+    color: brown;
+    font-weight: bold;
+}
