@@ -3,7 +3,6 @@ In this assignment, I created another fun and interactive game for web browsers.
 ## Game link:
 https://timwu1015.github.io/unit-4-game/
 ## Instruction and Skills Acquired:
-![Star Wars](Images/2-StarWars.jpg)
 
 1. [Watch the demo](https://youtu.be/klN2-ITjRt8).
 
